@@ -37,3 +37,11 @@ class HealthCampForm(BaseModel):
     date: str
     inspection: Optional[str] = None
     signature: Optional[str] = None
+
+
+class ExtendedHealthCampForm(HealthCampForm):
+    # Additional fields for the new form variant
+    # 'current_post' corresponds to 'सध्याचे पद' shown in the attachment
+    current_post: Optional[str] = None
+    ministry_department: Optional[str] = None
+    floor: Optional[str] = None
