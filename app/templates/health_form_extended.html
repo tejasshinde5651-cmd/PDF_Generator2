@@ -256,9 +256,9 @@ body {
     </div>
 
     <div class="header-text-wrap">
-        <div class="header-text">निरयम महाराष्ट्र</div>
+        <div class="header-text">निरामय महाराष्ट्र</div>
         <div class="header-subtitle">मुख्यमंत्री समुदाय आरोग्य शिबिर {{ year }}</div>
-        <div class="header-divider">निरयम {{ division }}</div>
+        <div class="header-divider">निरामय मंत्रालय {{ division }}</div>
     </div>
 
     <div class="header-logo">
@@ -436,37 +436,11 @@ body {
     </div>
 </div>
 
-<div class="two-column">
-    <div class="column">
-        <div class="form-group">
-            <div class="label">तुम्हाला कोणती औषधे सुरू आहेत का?</div>
-            <div class="checkbox-group">
-                <div class="checkbox">
-                    {% if medication_currently %}
-                        ☑
-                    {% else %}
-                        ☐
-                    {% endif %}
-                    हो
-                </div>
-                <div class="checkbox">
-                    {% if not medication_currently %}
-                        ☑
-                    {% else %}
-                        ☐
-                    {% endif %}
-                    नाही
-                </div>
-            </div>
-        </div>
-    </div>
+ <div class="form-group form-full">
+    <div class="label">जुना आजार / शस्त्रक्रिया तपशील :</div>
+    <div class="textarea-box">{{ other_details }}</div>
 </div>
 
-{% if medication_currently %}
-<div class="form-group form-full">
-    <div class="label">चालू असलेली औषधे:</div>
-    <div class="textarea-box">{{ medication_details }}</div>
-</div>
 {% endif %}
 <div class="two-column">
     <div class="column">
@@ -499,11 +473,6 @@ body {
     <div class="textarea-box">{{ allergy_details }}</div>
 </div>
 {% endif %}
-
-<div class="form-group form-full">
-    <div class="label">इतर तपशील:</div>
-    <div class="textarea-box">{{ other_details }}</div>
-</div>
 
 <div class="section-header">३. कार्यालयीन तपशील</div>
 

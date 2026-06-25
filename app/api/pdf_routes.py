@@ -116,7 +116,7 @@ def generate_pdf_extended(data: ExtendedHealthCampForm):
             "floor": data.floor or "",
 
             # Section 3: Official Details
-            "date": data.date,
+            "date": data.date or "",
             "inspection": data.inspection or "",
             "signature": data.signature or ""
         }
