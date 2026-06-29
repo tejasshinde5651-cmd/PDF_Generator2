@@ -33,14 +33,14 @@ body {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    border-bottom: 2px solid #003d7a;
+    border-bottom: 3px solid #e08a1e;
     padding-bottom: 12px;
     margin-bottom: 30px;
 }
 
 .header-logo {
-    width: 60px;
-    height: 60px;
+    width: 90px;
+    height: 90px;
     flex-shrink: 0;
 }
 
@@ -109,32 +109,47 @@ body {
 }
 
 .label {
-    font-size: 13px;
-    margin-bottom: 5px;
-    color: #333;
-    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+    font-weight: 400;
 }
 
 .input-box {
-    border: 1px solid #b9b9b9;
-    border-radius: 3px;
-    padding: 9px 10px;
-    min-height: 30px;
-    background-color: #fafafa;
+    border: none;
+    border-bottom: 1px dashed #999;
+    border-radius: 0;
+    padding: 4px 2px 6px;
+    min-height: 24px;
+    background-color: transparent;
     word-wrap: break-word;
     font-size: 12px;
     color: #333;
 }
 
-.input-box-2 {
-    border: 1px solid #b9b9b9;
-    border-radius: 3px;
-    padding: 9px 10px;
-    min-height: 60px;
-    background-color: #fafafa;
+
+.select-box {
+    border: 1px solid #c9ced6;
+    border-radius: 6px;
+    padding: 9px 12px;
+    min-height: 30px;
+    background-color: #fff;
     word-wrap: break-word;
-    font-size: 12px;
-    color: #333;
+    font-size: 13px;
+    color: #8a93a3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.select-box::after {
+    content: "\25BE";
+    color: #8a93a3;
+    margin-left: 8px;
+}
+
+.required {
+    color: #d32f2f;
 }
 
 .checkbox-group {
@@ -158,11 +173,12 @@ body {
 }
 
 .textarea-box {
-    border: 1px solid #b9b9b9;
-    border-radius: 3px;
-    padding: 9px 10px;
-    min-height: 55px;
-    background-color: #fafafa;
+    border: none;
+    border-bottom: 1px dashed #999;
+    border-radius: 0;
+    padding: 4px 2px 6px;
+    min-height: 45px;
+    background-color: transparent;
     font-size: 12px;
     font-family: Arial, sans-serif;
     color: #333;
@@ -258,7 +274,7 @@ body {
     <div class="header-text-wrap">
         <div class="header-text">निरामय महाराष्ट्र</div>
         <div class="header-subtitle">मुख्यमंत्री समुदाय आरोग्य शिबिर {{ year }}</div>
-        <div class="header-divider">निरामय मंत्रालय {{ division }}</div>
+        <div class="header-divider">सर्व मंत्रालयीन अधिकारी, कर्मचारी व इतर सर्व सेवकांसाठी विशेष आरोग्य तपासणी मोहीम</div>
     </div>
 
     <div class="header-logo">
@@ -266,41 +282,24 @@ body {
     </div>
 </div>
 
-<div class="section-header">१. वैयक्तिक माहिती</div>
+<div class="section-header">★ वैयक्तिक माहिती</div>
 
 <div class="form-group form-full">
-    <div class="label">कर्मचाऱ्याचे नाव:</div>
+    <div class="label">कर्मचाऱ्याचे नाव<span class="required">*</span> :</div>
     <div class="input-box">{{ full_name }}</div>
 </div>
 
 <div class="two-column">
     <div class="column">
         <div class="form-group">
-            <div class="label">लिंग:</div>
-            <div class="checkbox-group">
-                <div class="checkbox">
-                    {% if gender == "Male" %}
-                        ☑
-                    {% else %}
-                        ☐
-                    {% endif %}
-                    पुरुष
-                </div>
-                <div class="checkbox">
-                    {% if gender == "Female" %}
-                        ☑
-                    {% else %}
-                        ☐
-                    {% endif %}
-                    स्त्री
-                </div>
-            </div>
+            <div class="label">मंत्रालयीन विभाग:</div>
+            <div class="input-box">{{ ministry_department }}</div>
         </div>
     </div>
     <div class="column">
         <div class="form-group">
-            <div class="label">जन्मतारीख:</div>
-            <div class="input-box">{{ dob }}</div>
+            <div class="label">मजला:</div>
+            <div class="input-box">{{ floor }}</div>
         </div>
     </div>
 </div>
@@ -314,22 +313,7 @@ body {
     </div>
     <div class="column">
         <div class="form-group">
-            <div class="label">मंत्रालयीन विभाग:</div>
-            <div class="input-box">{{ ministry_department }}</div>
-        </div>
-    </div>
-</div>
-
-<div class="two-column">
-    <div class="column">
-        <div class="form-group">
-            <div class="label">मजला:</div>
-            <div class="input-box">{{ floor }}</div>
-        </div>
-    </div>
-    <div class="column">
-        <div class="form-group">
-            <div class="label">मोबाईल क्र.:</div>
+            <div class="label">मोबाईल / Whatsapp<span class="required">*</span> :</div>
             <div class="input-box">{{ mobile }}</div>
         </div>
     </div>
@@ -338,41 +322,62 @@ body {
 <div class="two-column">
     <div class="column">
         <div class="form-group">
+            <div class="label">जन्मतारीख<span class="required">*</span> :</div>
+            <div class="input-box">{{ dob }}</div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="form-group">
             <div class="label">ईमेल:</div>
             <div class="input-box">{{ email }}</div>
         </div>
     </div>
-    <div class="column">
-        <div class="form-group">
-            <div class="label">पिन कोड:</div>
-            <div class="input-box">{{ pincode }}</div>
-        </div>
-    </div>
 </div>
 
-<div class="two-column">
-    <div class="column">
-        <div class="form-group">
-            <div class="label">जिल्हा:</div>
-            <div class="input-box">{{ district }}</div>
+<div class="form-group">
+    <div class="label">लिंग<span class="required">*</span> :</div>
+    <div class="checkbox-group">
+        <div class="checkbox">
+            {% if gender == "Male" %}
+                ☑
+            {% else %}
+                ☐
+            {% endif %}
+            पुरुष
+        </div>
+        <div class="checkbox">
+            {% if gender == "Female" %}
+                ☑
+            {% else %}
+                ☐
+            {% endif %}
+            स्त्री
         </div>
     </div>
-    <div class="column">
-        <div class="form-group">
-            <div class="label">तालुका:</div>
-            <div class="input-box">{{ taluka }}</div>
-        </div>
-    </div>
-</div>
-
-<div class="form-group form-full">
-    <div class="label">गावाचे नाव:</div>
-    <div class="input-box">{{ village }}</div>
 </div>
 
 <div class="form-group form-full">
     <div class="label">संपूर्ण पत्ता:</div>
     <div class="input-box">{{ address }}</div>
+</div>
+
+<div class="form-row">
+    <div class="form-group">
+        <div class="label">पिन कोड<span class="required">*</span>:</div>
+        <div class="input-box">{{ pincode }}</div>
+    </div>
+    <div class="form-group">
+        <div class="label">जिल्हा<span class="required">*</span>:</div>
+        <div class="input-box">{{ district }}</div>
+    </div>
+    <div class="form-group">
+        <div class="label">तालुका<span class="required">*</span>:</div>
+        <div class="input-box">{{ taluka }}</div>
+    </div>
+    <div class="form-group">
+        <div class="label">गाव<span class="required">*</span>:</div>
+        <div class="input-box">{{ village }}</div>
+    </div>
 </div>
 
 <div class="form-group form-full">
@@ -381,7 +386,7 @@ body {
 </div>
 
 
-<div class="section-header">२. आरोग्याविषयक माहिती</div>
+<div class="section-header">★ आरोग्याविषयक माहिती</div>
 
 <div class="two-column">
     <div class="column">
@@ -428,23 +433,23 @@ body {
             <div class="input-box">{{ weight }}</div>
         </div>
     </div>
-    <div class="column">
-        <div class="form-group">
-            <div class="label">आजार किंवा लक्षणे:</div>
-            <div class="textarea-box">{{ illness_symptoms }}</div>
-        </div>
-    </div>
+</div>
+
+
+<div class="form-group form-full">
+    <div class="label">आजार किंवा लक्षणे:</div>
+    <div class="input-box">{{ illness_symptoms }}</div>
 </div>
 
  <div class="form-group form-full">
     <div class="label">जुना आजार / शस्त्रक्रिया तपशील :</div>
-    <div class="textarea-box">{{ other_details }}</div>
+    <div class="input-box">{{ other_details }}</div>
 </div>
 
 <div class="two-column">
     <div class="column">
         <div class="form-group">
-            <div class="label">तुम्हाला कशाची एलर्जी आहे का?</div>
+            <div class="label">तुम्हाला कशाची एलर्जी आहे का?<span class="required">*</span></div>
             <div class="checkbox-group">
                 <div class="checkbox">
                     {% if allergy %}
@@ -469,29 +474,29 @@ body {
 {% if allergy %}
 <div class="form-group form-full">
     <div class="label">एलर्जीचे नाव / तपशील:</div>
-    <div class="textarea-box">{{ allergy_details }}</div>
+    <div class="input-box">{{ allergy_details }}</div>
 </div>
 {% endif %}
 
-<div class="section-header">३. कार्यालयीन तपशील</div>
+<div class="section-header">★ कार्यालयीन तपशील</div>
 
 <div class="two-column">
     <div class="column">
         <div class="form-group">
             <div class="label">दिनांक:</div>
-            <div class="input-box-2"> </div>
+            <div class="input-box"> </div>
         </div>
     </div>
     <div class="column">
         <div class="form-group">
             <div class="label">निरीक्षण / शेरा:</div>
-            <div class="input-box-2">{{ inspection }}</div>
+            <div class="input-box"></div>
         </div>
     </div>
     <div class="column">
         <div class="form-group">
             <div class="label">स्वाक्षरी:</div>
-            <div class="input-box-2">{{ signature }}</div>
+            <div class="input-box"></div>
         </div>
     </div>
 </div>

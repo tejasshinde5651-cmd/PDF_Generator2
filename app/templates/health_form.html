@@ -40,10 +40,11 @@ body {
 }
 
 .header-logo {
-    width: 60px;
-    height: 60px;
+    width: 90px;
+    height: 90px;
     flex-shrink: 0;
 }
+
 
 .header-logo img {
     width: 100%;
@@ -119,11 +120,12 @@ body {
 }
 
 .input-box {
-    border: 1px solid #b9b9b9;
-    border-radius: 3px;
-    padding: 9px 10px;
-    min-height: 30px;
-    background-color: #fafafa;
+    border: none;
+    border-bottom: 1px dashed #999;
+    border-radius: 0;
+    padding: 4px 2px 6px;
+    min-height: 24px;
+    background-color: transparent;
     word-wrap: break-word;
     font-size: 12px;
     color: #333;
@@ -277,7 +279,7 @@ body {
 </div>
 
 <!-- Section 1: Personal Information -->
-<div class="section-header">१. वैयक्तिक माहिती</div>
+<div class="section-header">★ वैयक्तिक माहिती</div>
 
 <div class="form-group form-full">
     <div class="label">पूर्ण नाव:</div>
@@ -369,7 +371,7 @@ body {
 </div>
 
 <!-- Section 2: Health Information -->
-<div class="section-header">२. आरोग्याविषयक माहिती</div>
+<div class="section-header">★ आरोग्याविषयक माहिती</div>
 
 <div class="two-column">
     <div class="column">
@@ -419,14 +421,14 @@ body {
     <div class="column">
         <div class="form-group">
             <div class="label">आजार किंवा लक्षणे:</div>
-            <div class="textarea-box">{{ illness_symptoms }}</div>
+            <div class="input-box">{{ illness_symptoms }}</div>
         </div>
     </div>
 </div>
 
 <div class="form-group form-full">
     <div class="label">जुना आजार / शस्त्रक्रिया तपशील :</div>
-    <div class="textarea-box">{{ other_details }}</div>
+    <div class="input-box">{{ other_details }}</div>
 </div>
 
 <div class="two-column">
@@ -457,31 +459,31 @@ body {
 {% if allergy %}
 <div class="form-group form-full">
     <div class="label">एलर्जीचे नाव / तपशील:</div>
-    <div class="textarea-box">{{ allergy_details }}</div>
+    <div class="input-box">{{ allergy_details }}</div>
 </div>
 {% endif %}
 
  
 <!-- Section 3: Official Details -->
-<div class="section-header">३. कार्यालयीन तपशील</div>
+<div class="section-header">★ कार्यालयीन तपशील</div>
 
 <div class="two-column">
     <div class="column">
         <div class="form-group">
             <div class="label">दिनांक:</div>
-            <div class="input-box-2"></div>
+            <div class="input-box"></div>
         </div>
     </div>
     <div class="column">
         <div class="form-group">
             <div class="label">निरीक्षण / शेरा:</div>
-            <div class="input-box-2"></div>
+            <div class="input-box"></div>
         </div>
     </div>
     <div class="column">
         <div class="form-group">
             <div class="label">स्वाक्षरी:</div>
-            <div class="input-box-2"></div>
+            <div class="input-box"></div>
         </div>
     </div>
 </div>

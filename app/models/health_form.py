@@ -27,8 +27,8 @@ class HealthCampForm(BaseModel):
     blood_group: Optional[str] = None
     weight: Optional[str] = None
     illness_symptoms: Optional[str] = None
-    medication_currently: bool = False
-    medication_details: Optional[str] = None
+    # medication_currently: bool = False
+    # medication_details: Optional[str] = None
     allergy: bool = False
     allergy_details: Optional[str] = None
     other_details: Optional[str] = None

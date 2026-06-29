@@ -30,7 +30,7 @@ def generate_pdf(data: HealthCampForm):
             "year": data.year,
             "division": data.division,
             "logo_left": _load_logo_data("D_image.jpg"),
-            "logo_right": _load_logo_data("Logo.jpg"),
+            "logo_right": _load_logo_data("govtofmah-DjMplB8F-removebg-preview.png"),
 
             # Section 1: Personal Information
             "full_name": data.full_name,
@@ -51,8 +51,8 @@ def generate_pdf(data: HealthCampForm):
             "blood_group": data.blood_group or "",
             "weight": data.weight or "",
             "illness_symptoms": data.illness_symptoms or "",
-            "medication_currently": data.medication_currently,
-            "medication_details": data.medication_details or "",
+            # "medication_currently": data.medication_currently,
+            # "medication_details": data.medication_details or "",
             "allergy": data.allergy,
             "allergy_details": data.allergy_details or "",
             "other_details": data.other_details or "",
@@ -83,7 +83,7 @@ def generate_pdf_extended(data: ExtendedHealthCampForm):
             "year": data.year,
             "division": data.division,
             "logo_left": _load_logo_data("D_image.jpg"),
-            "logo_right": _load_logo_data("Logo.jpg"),
+            "logo_right": _load_logo_data("govtofmah-DjMplB8F-removebg-preview.png"),
 
             # Section 1: Personal Information
             "full_name": data.full_name,
@@ -104,8 +104,8 @@ def generate_pdf_extended(data: ExtendedHealthCampForm):
             "blood_group": data.blood_group or "",
             "weight": data.weight or "",
             "illness_symptoms": data.illness_symptoms or "",
-            "medication_currently": data.medication_currently,
-            "medication_details": data.medication_details or "",
+            # "medication_currently": data.medication_currently,
+            # "medication_details": data.medication_details or "",
             "allergy": data.allergy,
             "allergy_details": data.allergy_details or "",
             "other_details": data.other_details or "",
