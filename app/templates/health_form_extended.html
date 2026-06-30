@@ -38,17 +38,48 @@ body {
     margin-bottom: 30px;
 }
 
+/* Shared base: no fixed box, no overflow clipping, so nothing gets cut off */
 .header-logo {
-    width: 90px;
-    height: 90px;
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header-logo img {
+    display: block;
+    object-fit: contain;
+    object-position: center;
+}
+
+/*
+   Separate rules per side: each logo's source image has different
+   amounts of built-in padding, so each gets its own box size instead
+   of relying on a CSS scale() transform (which was clipping the
+   left logo since its parent had overflow:hidden). Adjust freely.
+*/
+.header-logo-left {
+    width: 110px;
+    height: 110px;
+    min-width: 110px;
+    min-height: 110px;
+}
+
+.header-logo-left img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    display: block;
+}
+
+.header-logo-right {
+    width: 130px;
+    height: 130px;
+    min-width: 130px;
+    min-height: 130px;
+}
+
+.header-logo-right img {
+    width: 100%;
+    height: 100%;
 }
 
 .header-text-wrap {
@@ -267,7 +298,7 @@ body {
 <div class="container">
 
 <div class="header">
-    <div class="header-logo">
+    <div class="header-logo header-logo-left">
         <img src="{{ logo_right }}" alt="Left Logo">
     </div>
 
@@ -277,7 +308,7 @@ body {
         <div class="header-divider">सर्व मंत्रालयीन अधिकारी, कर्मचारी व इतर सर्व सेवकांसाठी विशेष आरोग्य तपासणी मोहीम</div>
     </div>
 
-    <div class="header-logo">
+    <div class="header-logo header-logo-right">
         <img src="{{ logo_left }}" alt="Right Logo">
     </div>
 </div>
